@@ -4,7 +4,7 @@ Mini-sistema front-end que simula o fluxo básico de login,
 cadastro de usuário, lista de produtos e pagamento de um
 e-commerce.
 
-Disciplina: Desenvolvedor Fronts-End (PRTI)\
+Disciplina: Desenvolvedor Front-End (PRTI)\
 Aluno: Nícolas Georgeos Mantzos\
 Matrícula: 2025200254
 
