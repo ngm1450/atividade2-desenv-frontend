@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E-Commerce — Login, Produtos, Pagamento</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="min-vh-100 d-flex align-items-center bg-gradient">
+    <div class="container">
+      <div id="flash" class="container-compact"></div>
+
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8 col-xl-10">
+          <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
+            <div class="row g-0">
+              <div class="col-lg-4 d-none d-lg-flex bg-brand text-white flex-column justify-content-center p-4">
+                <div class="text-center w-100">
+                  <div class="brand-circle mx-auto mb-3">
+                    <i class="bi bi-bag-check"></i>
+                  </div>
+                  <h1 class="h3 fw-bold mb-2">ShopX</h1>
+                  <p class="opacity-75 mb-0">E-commerce (Desenv. Front-End)</p>
+                </div>
+              </div>
+
+              <div class="col-12 col-lg-8">
+
+                <section id="loginView" class="p-4 p-md-5 view active">
+                  <h2 class="h4 fw-semibold mb-4">
+                    <i class="bi bi-box-arrow-in-right me-2"></i>Entrar
+                  </h2>
+
+                  <form id="loginForm" class="needs-validation" novalidate>
+                    <div class="mb-3">
+                      <label for="loginUser" class="form-label">Usuário</label>
+                      <input type="text" class="form-control" id="loginUser" placeholder="ex.: maria.silva" required autocomplete="username">
+                      <div class="invalid-feedback">Informe seu usuário.</div>
+                    </div>
+
+                    <div class="mb-4">
+                      <label for="loginPass" class="form-label">Senha</label>
+                      <input type="password" class="form-control" id="loginPass" placeholder="••••••••" required autocomplete="current-password">
+                      <div class="invalid-feedback">Informe sua senha.</div>
+                    </div>
+
+                    <div class="d-flex align-items-center gap-2">
+                      <button id="btnConfirmar" class="btn btn-primary px-4" type="submit">
+                        <i class="bi bi-check-lg me-1"></i> Confirmar
+                      </button>
+                      <button id="btnCadastro" class="btn btn-outline-secondary px-4" type="button">
+                        <i class="bi bi-person-plus me-1"></i> Cadastrar Novo Usuário
+                      </button>
+                    </div>
+                  </form>
+                </section>
+
+                <section id="registerView" class="p-4 p-md-5 view">
+                  <h2 class="h4 fw-semibold mb-4">
+                    <i class="bi bi-person-badge me-2"></i>Cadastro de Novo Usuário
+                  </h2>
+
+                  <form id="registerForm" class="needs-validation" novalidate>
+                    <div class="row g-3">
+                      <div class="col-md-8">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input id="nome" class="form-control" type="text" placeholder="Nome completo" required autocomplete="name">
+                        <div class="invalid-feedback">Informe o nome.</div>
+                      </div>
+                      <div class="col-md-4">
+                        <label for="cpf" class="form-label">CPF</label>
+                        <input id="cpf" class="form-control" type="text" inputmode="numeric" maxlength="14" placeholder="000.000.000-00" required>
+                        <div class="invalid-feedback">Informe o CPF.</div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input id="email" class="form-control" type="email" placeholder="exemplo@email.com" required autocomplete="email">
+                        <div class="invalid-feedback">Informe um e-mail válido.</div>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="profissao" class="form-label">Profissão</label>
+                        <input id="profissao" class="form-control" type="text" placeholder="Profissão" required>
+                        <div class="invalid-feedback">Informe a profissão.</div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="nascimento" class="form-label">Data de Nascimento</label>
+                        <input id="nascimento" class="form-control" type="date" required autocomplete="bday">
+                        <div class="invalid-feedback">Informe a data de nascimento.</div>
+                      </div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <h3 class="h6 text-uppercase text-secondary">Endereço</h3>
+                    <div class="row g-3">
+                      <div class="col-md-8">
+                        <label for="logradouro" class="form-label">Logradouro</label>
+                        <input id="logradouro" class="form-control" type="text" placeholder="Rua / Avenida" required autocomplete="address-line1">
+                        <div class="invalid-feedback">Informe o logradouro.</div>
+                      </div>
+                      <div class="col-md-4">
+                        <label for="numero" class="form-label">Número</label>
+                        <input id="numero" class="form-control" type="text" inputmode="numeric" placeholder="Nº" required>
+                        <div class="invalid-feedback">Informe o número.</div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="quadra" class="form-label">Quadra</label>
+                        <input id="quadra" class="form-control" type="text" placeholder="Opcional">
+                      </div>
+                      <div class="col-md-6">
+                        <label for="lote" class="form-label">Lote</label>
+                        <input id="lote" class="form-control" type="text" placeholder="Opcional">
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="bairro" class="form-label">Bairro</label>
+                        <input id="bairro" class="form-control" type="text" required>
+                        <div class="invalid-feedback">Informe o bairro.</div>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="cep" class="form-label">CEP</label>
+                        <input id="cep" class="form-control" type="text" inputmode="numeric" maxlength="9" placeholder="00000-000" required>
+                        <div class="invalid-feedback">Informe o CEP.</div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="cidade" class="form-label">Cidade</label>
+                        <select id="cidade" class="form-select" required autocomplete="address-level2">
+                          <option value="" selected disabled>Selecione...</option>
+                          <option>São José dos Pinhais</option>
+                          <option>Curitiba</option>
+                          <option>São Paulo</option>
+                          <option>Rio de Janeiro</option>
+                          <option>Belo Horizonte</option>
+                        </select>
+                        <div class="invalid-feedback">Selecione a cidade.</div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="estado" class="form-label">Estado</label>
+                        <select id="estado" class="form-select" required autocomplete="address-level1">
+                          <option value="" selected disabled>Selecione...</option>
+                          <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
+                          <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
+                          <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
+                          <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
+                          <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
+                          <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
+                          <option>SP</option><option>SE</option><option>TO</option>
+                        </select>
+                        <div class="invalid-feedback">Selecione o estado.</div>
+                      </div>
+                    </div>
+
+                    <div class="d-flex align-items-center gap-2 mt-4">
+                      <button class="btn btn-success px-4" type="submit">
+                        <i class="bi bi-check2-circle me-1"></i> Salvar
+                      </button>
+                      <button class="btn btn-link" id="voltarLogin" type="button">
+                        <i class="bi bi-arrow-left"></i> Voltar para o Login
+                      </button>
+                    </div>
+                  </form>
+                </section>
+
+                <section id="productsView" class="p-4 p-md-5 view">
+                  <div class="d-flex align-items-center gap-2 mb-3">
+                    <h2 class="h4 fw-semibold m-0"><i class="bi bi-shop me-2"></i>Produtos</h2>
+                    <div class="ms-auto d-flex align-items-center gap-2">
+                      <span class="badge text-bg-secondary" id="cartCount">0</span>
+                      <button id="goToPay" class="btn btn-primary" type="button" disabled>
+                        <i class="bi bi-credit-card-2-front me-1"></i> Finalizar a compra
+                      </button>
+                    </div>
+                  </div>
+
+                  <div id="productGrid" class="row g-3">
+                  </div>
+                </section>
+
+                <section id="paymentView" class="p-4 p-md-5 view">
+                  <h2 class="h4 fw-semibold mb-3"><i class="bi bi-credit-card me-2"></i>Pagamento</h2>
+
+                  <div class="row g-4">
+                    <div class="col-12 col-lg-7">
+                      <form id="paymentForm" class="row g-3 needs-validation" novalidate>
+                        <div class="col-12 col-md-6">
+                          <label for="bandeira" class="form-label">Bandeira do Cartão</label>
+                          <select id="bandeira" class="form-select" required>
+                            <option value="">Selecione...</option>
+                            <option>Visa</option>
+                            <option>Mastercard</option>
+                            <option>American Express</option>
+                          </select>
+                          <div class="invalid-feedback">Selecione a bandeira.</div>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                          <label for="nomeCartao" class="form-label">Nome no cartão</label>
+                          <input id="nomeCartao" class="form-control" required autocomplete="cc-name" />
+                          <div class="invalid-feedback">Informe o nome.</div>
+                        </div>
+
+                        <div class="col-12">
+                          <label for="numeroCartao" class="form-label">Número do Cartão</label>
+                          <input id="numeroCartao" class="form-control" required inputmode="numeric" maxlength="19" placeholder="#### #### #### ####" autocomplete="cc-number" />
+                          <div class="invalid-feedback">Informe o número do cartão.</div>
+                        </div>
+
+                        <div class="col-6 col-md-4">
+                          <label for="expiracao" class="form-label">Data de Expiração</label>
+                          <input id="expiracao" class="form-control" required placeholder="MM/AA" inputmode="numeric" maxlength="5" />
+                          <div class="invalid-feedback">Informe a expiração (MM/AA).</div>
+                        </div>
+
+                        <div class="col-6 col-md-4">
+                          <label for="cvv" class="form-label">Código de Segurança</label>
+                          <input id="cvv" class="form-control" required inputmode="numeric" maxlength="4" />
+                          <div class="invalid-feedback">Informe o CVV.</div>
+                        </div>
+
+                        <div class="col-12 d-flex gap-2">
+                          <button id="btnFinalizar" class="btn btn-success px-4" type="submit">
+                            Finalizar
+                          </button>
+                          <button class="btn btn-outline-secondary" type="button" id="voltarProdutos">
+                            Voltar aos produtos
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+
+                    <div class="col-12 col-lg-5">
+                      <div class="border rounded-3 p-3">
+                        <h3 class="h6">Resumo</h3>
+                        <div id="cartSummary" class="small"></div>
+                        <hr />
+                        <div class="d-flex justify-content-between align-items-center">
+                          <span class="fw-semibold">Total</span>
+                          <span id="cartTotal" class="fs-5 fw-bold">R$ 0,00</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <section id="confirmView" class="p-4 p-md-5 view">
+                  <h2 class="h4 fw-semibold mb-3"><i class="bi bi-check2-circle me-2"></i>Compra realizada com sucesso!</h2>
+                  <p class="text-secondary mb-3">Abaixo, os dados da compra e forma de pagamento.</p>
+
+                  <div id="confirmData" class="mb-4"></div>
+
+                  <div class="d-flex gap-2">
+                    <button class="btn btn-primary" id="continuarComprando">Continuar comprando</button>
+                    <button class="btn btn-outline-secondary" id="sair">Sair</button>
+                  </div>
+                </section>
+
+              </div>
+            </div>
+          </div>
+
+          <p class="text-center text-muted mt-3 small">
+            <i class="bi bi-code-square"></i> HTML • CSS • JS — Atividade 2 Desenvolvedor Front-End
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
